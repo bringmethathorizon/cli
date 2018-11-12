@@ -8,11 +8,10 @@ const main = async () => {
 
     }catch (e) {
         console.error('Error connecting to DB: ' + e);
-        console.error('')
     }
     const CLI = new cli(connection);
     CLI.init();
 };
 
 main()
-    .catch(e=>console.log(e));
+    .catch(e=>console.log("EREREEREERRE" +e));

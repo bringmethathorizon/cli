@@ -1,5 +1,5 @@
 const messages = require('../const/messages');
-const handler = require('./handler');
+const Handler = require('./handler');
 const readline = require('readline');
 
 class MyTvStationCLI {
@@ -10,23 +10,24 @@ class MyTvStationCLI {
     }
 
     init() {
+        let myHandler = new Handler(this.connection);
         this.rl = readline.createInterface({
             input: process.stdin,
             output: process.stdout
         });
 
-        this.quest1 = () => {
+        this.quest1 = async () => {
             this.rl.question(messages.greeting, async (answer) => {
                 answer = parseInt(answer);
                 if (!Number.isInteger(answer) || answer < 0 || answer > 5) {
                     console.log("Wrong input");
-                    exports.quest1();
+                    this.quest1();
                 }
-                let res = await handler.responseHandler[answer](this.connection);
-                console.log(res);
-
+                let res = await myHandler.responseHandler[answer](this.connection);
+                this.quest1();
             });
-        }
+        };
+        this.quest1();
     }
 }
 

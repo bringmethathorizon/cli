@@ -1,8 +1,8 @@
 exports.greeting = `******************************************************************
 Please choose action:
-    1) See the list of movies
-    2) See the list of TVShows
-    3) See the list of news 
-    4) See the list TV Series
-    5) See the the list of Documentaries
+    1) See the list of Documentaries
+    2) See the list of movie
+    3) See the list TV Series
+    4) See the list of news 
+    5) See the the list of Talkshow
 Your choice: `;
